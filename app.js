@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
+import routes from "./routes";
 
 const app = express();
 
@@ -14,10 +15,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());
 app.use(morgan("dev"));
+//morgan logger
 
-app.use("/", globalRouter);
+app.use(routes.home, globalRouter);
 //user랑 video랑 관련없는 일반적이 페이지로 넘어갈때 쓸 주소
-app.use("/user", userRouter);
-app.use("/video", videoRouter);
+app.use(routes.users, userRouter);
+app.use(routes.videos, videoRouter);
 
 export default app;
