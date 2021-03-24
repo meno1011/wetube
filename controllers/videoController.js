@@ -1,2 +1,2 @@
-export const homeController = (req, res) => res.send("Home");
-export const searchController = (req, res) => res.send("Search");
+export const homeController = (req, res) => res.render("Home");
+export const searchController = (req, res) => res.render("Search");

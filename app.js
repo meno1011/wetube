@@ -11,6 +11,7 @@ import routes from "./routes";
 const app = express();
 
 //small middleware들
+app.set("view engine", "pug"); //pug은 템플릿 언어이다
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
