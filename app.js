@@ -10,6 +10,7 @@ import routes from "./routes";
 
 const app = express();
 
+//small middleware들
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -17,6 +18,7 @@ app.use(helmet());
 app.use(morgan("dev"));
 //morgan logger
 
+//router  3개
 app.use(routes.home, globalRouter);
 //user랑 video랑 관련없는 일반적이 페이지로 넘어갈때 쓸 주소
 app.use(routes.users, userRouter);
